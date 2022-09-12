@@ -1,0 +1,49 @@
+<div class="relative w-full">
+  <button @onclick="ToggleDropdown" class="w-full flex justify-between text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+    @Value
+    <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+  </button>
+  <!-- Dropdown menu -->
+  <div div class="@(DropdownOpen ? "visible":"invisible") w-full bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 absolute inset-0 mt-10">
+    <ul class="py-1 text-sm text-gray-700 dark:text-gray-200">
+      @foreach (var option in Options)
+      {
+        <li>
+        <a href="#" @onclick="() => ItemClick(option)" class="block bg-white  py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white dark:bg-gray-700">
+          @option
+        </a>
+      </li>
+      }
+      <li>
+        <a href="#" class="block bg-white  py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white dark:bg-gray-700">
+          Create your custom deck...
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+@code {
+  [Parameter]
+  public string Value { get; set; } = "Select...";
+  [Parameter]
+  public string[] Options { get; set; } = new string[] {};	
+  [Parameter]
+  public EventCallback<string> OnDropdownItemClick { get; set; }
+  private bool DropdownOpen = false;
+  private void DropdownChange(string value)
+  {
+      Value = value;
+      DropdownOpen = false;
+  }
+  private void ToggleDropdown()
+  {
+      DropdownOpen = !DropdownOpen;
+  }
+
+  private void ItemClick(string value)
+  {
+      OnDropdownItemClick.InvokeAsync(value);
+      DropdownOpen = false;
+  }
+}

@@ -1,0 +1,55 @@
+@page "/game"
+
+<PageTitle>@roomTitle - Planning Poker</PageTitle>
+
+<div id="container" class="flex items-center justify-between h-screen flex-col p-2">
+  <h1 class="text-2xl font-bold uppercase">@roomTitle</h1>
+
+  <!-- Table / ShowCards -->
+  <div id="card-table" class="flex items-center justify-center">
+    <div>
+      <div id="cards" class="flex items-center justify-center p-4">
+        @foreach (var card in cards)
+        {
+          @if(showCards) {
+            <div class="p-4 m-2 w-16 h-24 flex items-center justify-center rounded-lg cursor-pointer text-xl font-bold border-2 border-blue-600">
+                @card
+            </div>
+          }else{
+            <div class="p-4 m-2 w-16 h-24 flex items-center justify-center rounded-lg cursor-pointer text-xl font-bold border-2 border-blue-600">
+                !
+            </div>
+          }
+        }
+      </div>
+      <div class="flex items-center justify-center">
+        @if(showCards) {
+          <Button OnClick="() => StartNewVote()" Label="Start new vote" Type="Alternative" />
+        }else{
+          <Button OnClick="() => RevealCards()" Label="Reveal Cards" />
+        }
+      </div>
+    </div>
+  </div>
+  <!-- Footer / Cards -->
+  <CardsPicker Sequence="@cardsSequence" OnCardAdded="(string s) => AddCard(s)" />
+</div>
+
+@code {
+    private string roomTitle = "Salinha doida 123";
+    private string[] cardsSequence = { "0", "1", "2", "3", "5", "8", "13", "21", "34", "55", "89", "?" };
+    private bool showCards = false;
+    private List<string> cards = new List<string>();
+    private void RevealCards()
+    {
+        showCards = true;
+    }
+    private void StartNewVote() {
+        showCards = false;
+        cards.Clear();
+    }
+    private void AddCard(string card)
+    {
+        cards.Add(card);
+    }
+}

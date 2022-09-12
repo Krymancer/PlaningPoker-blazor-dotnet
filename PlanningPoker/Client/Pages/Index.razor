@@ -1,0 +1,27 @@
+﻿@page "/"
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create Game</PageTitle>
+
+<div id="container" class="flex items-center justify-center h-screen">
+  <div class="flex flex-col gap-6 justify-center">
+    <span class="text-center text-xl">Choose a name and a voting system to use:</span>
+    <Dropdown OnDropdownItemClick="(string s) => SetVotingSystem(s)" Options="VotingSystems" Value="@SelectedVotingSystem" />
+    <Button OnClick="() => CreateGame()" Label="Create Game" />
+  </div>
+</div>
+
+@code {
+    private string[] VotingSystems =  { "Fibonacci", "Modded Fibonacci", "T-shirts", "Powers of two"};
+    private string SelectedVotingSystem = "Fibonacci";
+
+    private void CreateGame()
+    { 
+      NavigationManager.NavigateTo("game");
+    }
+
+    private void SetVotingSystem(string votingSystem)
+    {
+      SelectedVotingSystem = votingSystem;
+    }
+}
