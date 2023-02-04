@@ -1,9 +1,10 @@
-@page "/game"
+@page "/game/{Room}"
+@using Microsoft.AspNetCore.SignalR.Client;
 
-<PageTitle>@roomTitle - Planning Poker</PageTitle>
+<PageTitle>@Room - Planning Poker</PageTitle>
 
 <div id="container" class="flex items-center justify-between h-screen flex-col p-2">
-  <h1 class="text-2xl font-bold uppercase">@roomTitle</h1>
+  <h1 class="text-2xl font-bold uppercase">@Room</h1>
 
   <!-- Table / ShowCards -->
   <div id="card-table" class="flex items-center justify-center">
@@ -36,20 +37,47 @@
 </div>
 
 @code {
-    private string roomTitle = "Salinha doida 123";
+    [Parameter]
+    public string Room { get; set; } = string.Empty;
     private string[] cardsSequence = { "0", "1", "2", "3", "5", "8", "13", "21", "34", "55", "89", "?" };
     private bool showCards = false;
     private List<string> cards = new List<string>();
+
+    public Guid User = Guid.NewGuid();
+
+    private HubConnection? _connection;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _connection = new HubConnectionBuilder()
+       .WithUrl($"https://localhost:7140/hub/game")
+       .Build();
+
+        _connection.On<Guid,string>($"{Room}-RecieveVote", RecieveVote);
+
+        await _connection.StartAsync();
+        await _connection.InvokeAsync("RegisterUser", Room, User);
+    }
+
+    private void RecieveVote(Guid userId,string vote)
+    {
+        if(userId != User)
+        cards.Add(vote);
+    }
+
     private void RevealCards()
     {
         showCards = true;
     }
+
     private void StartNewVote() {
         showCards = false;
         cards.Clear();
     }
-    private void AddCard(string card)
+
+    private async void AddCard(string card)
     {
+        await _connection!.InvokeAsync("RegisterVote", Room, User, card);
         cards.Add(card);
     }
 }

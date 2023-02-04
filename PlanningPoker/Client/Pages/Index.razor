@@ -11,7 +11,7 @@
     <Button OnClick="() => {Console.WriteLine('t');}" Label="Join Room" />
     <div class="text-center text-4xl text-bold">Or create a new Room:</div>
      <span class="text-center text-xl">Choose a name and a voting system to use:</span>
-    <Input Placeholder="Name of room" ValueChanged="(string s) => {}" />
+        <Input Placeholder="Name of room" ValueChanged="(string s) => RoomNameValueChanged(s)" />
     <Dropdown OnDropdownItemClick="(string s) => SetVotingSystem(s)" Options="VotingSystems" Value="@SelectedVotingSystem" />
     
     <Button OnClick="() => CreateGame()" Label="Create Room" />
@@ -24,6 +24,7 @@
     private string[] AvaliableRooms = {};
     private string SelectedAvaliableRoom = "Select a room to join...";
     private bool RoomSelected = false;
+    private string RoomName = string.Empty;
 
     private HubConnection? _connection;
 
@@ -49,8 +50,8 @@
 
     private async void CreateGame()
     {
-        await _connection!.InvokeAsync("CreateRoom");
-        NavigationManager.NavigateTo("game");
+        await _connection!.InvokeAsync("CreateRoom", RoomName);
+        NavigationManager.NavigateTo($"game/{RoomName}");
     }
 
     private void JoinRoom()
@@ -68,5 +69,11 @@
     {
         RoomSelected = true;
         SelectedAvaliableRoom = seletecRoom;
+    }
+
+    private void RoomNameValueChanged(string value)
+    {
+        Console.WriteLine(value);
+        RoomName = value;
     }
 }

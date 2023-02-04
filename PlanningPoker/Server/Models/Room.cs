@@ -4,13 +4,14 @@
     {
         public Guid Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public IEnumerable<User> Participants { get; set; } = Enumerable.Empty<User>();
+        public List<User> Participants { get; set; }
 
 
         public Room(string roomName)
         {
             Name = roomName;
             Id = Guid.NewGuid();
+            Participants = new List<User>();
         }
     }
 }

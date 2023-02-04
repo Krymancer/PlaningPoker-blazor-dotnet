@@ -207,14 +207,14 @@
       "netstandard.dll": "sha256-kBK\/QJy7\/skP97jqnvXnOFMrhWS8HZ1bsADFK\/gZkyM=",
       "System.Private.CoreLib.dll": "sha256-3webPuyNUXfAFKY5c1tC\/jBVrjZHelBwvXrr1E9VJuk=",
       "PlanningPoker.Shared.dll": "sha256-Yc0VwFAPIMOB\/fSQ4cx3DwBbt4QqQqIndDRKxx7+UCI=",
-      "PlanningPoker.Client.dll": "sha256-z53JWXXTI7utK1f7g1w8RwVX7DIGKYiw3wAQCjSCelg="
+      "PlanningPoker.Client.dll": "sha256-ltuxgU1eS6Ll2Q8HqqLALgJW9\/rNf+hpXrB87peUN04="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
       "PlanningPoker.Shared.pdb": "sha256-JTpRc7AQPKD7zG2\/n3+q9PD9eY2OY6eFudaYJgPOueo=",
-      "PlanningPoker.Client.pdb": "sha256-+1\/r73mmiBmn29xL20Iw90gMQVmk9kkJfFS373ZZ0rY="
+      "PlanningPoker.Client.pdb": "sha256-7N\/GhIZPXUNBicp94aghW01vYPrTma0oWSxtnNZbRpQ="
     },
     "runtime": {
       "dotnet.6.0.13.mz549ijgd6.js": "sha256-X\/515F1HEzgsDZdY8BJjt8YUwrWngHGZkMnpClhsrpY=",
