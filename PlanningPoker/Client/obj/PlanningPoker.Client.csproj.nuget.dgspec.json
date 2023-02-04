@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\junho\\git\\PlanningPoker\\PlanningPoker\\Client\\PlanningPoker.Client.csproj": {}
+    "C:\\Users\\junho\\git\\PlaningPoker-blazor-dotnet\\PlanningPoker\\Client\\PlanningPoker.Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\junho\\git\\PlanningPoker\\PlanningPoker\\Client\\PlanningPoker.Client.csproj": {
+    "C:\\Users\\junho\\git\\PlaningPoker-blazor-dotnet\\PlanningPoker\\Client\\PlanningPoker.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\junho\\git\\PlanningPoker\\PlanningPoker\\Client\\PlanningPoker.Client.csproj",
+        "projectUniqueName": "C:\\Users\\junho\\git\\PlaningPoker-blazor-dotnet\\PlanningPoker\\Client\\PlanningPoker.Client.csproj",
         "projectName": "PlanningPoker.Client",
-        "projectPath": "C:\\Users\\junho\\git\\PlanningPoker\\PlanningPoker\\Client\\PlanningPoker.Client.csproj",
+        "projectPath": "C:\\Users\\junho\\git\\PlaningPoker-blazor-dotnet\\PlanningPoker\\Client\\PlanningPoker.Client.csproj",
         "packagesPath": "C:\\Users\\junho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\junho\\git\\PlanningPoker\\PlanningPoker\\Client\\obj\\",
+        "outputPath": "C:\\Users\\junho\\git\\PlaningPoker-blazor-dotnet\\PlanningPoker\\Client\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\junho\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\junho\\git\\PlanningPoker\\PlanningPoker\\Shared\\PlanningPoker.Shared.csproj": {
-                "projectPath": "C:\\Users\\junho\\git\\PlanningPoker\\PlanningPoker\\Shared\\PlanningPoker.Shared.csproj"
+              "C:\\Users\\junho\\git\\PlaningPoker-blazor-dotnet\\PlanningPoker\\Shared\\PlanningPoker.Shared.csproj": {
+                "projectPath": "C:\\Users\\junho\\git\\PlaningPoker-blazor-dotnet\\PlanningPoker\\Shared\\PlanningPoker.Shared.csproj"
               }
             }
           }
@@ -48,6 +44,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNet.SignalR.Client": {
+              "target": "Package",
+              "version": "[2.4.3, )"
+            },
             "Microsoft.AspNetCore.Components.WebAssembly": {
               "target": "Package",
               "version": "[6.0.8, )"
@@ -56,6 +56,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[6.0.8, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Client": {
+              "target": "Package",
+              "version": "[7.0.2, )"
             }
           },
           "imports": [
@@ -64,22 +68,17 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-              "version": "[6.0.8, 6.0.8]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -88,21 +87,17 @@
         }
       }
     },
-    "C:\\Users\\junho\\git\\PlanningPoker\\PlanningPoker\\Shared\\PlanningPoker.Shared.csproj": {
+    "C:\\Users\\junho\\git\\PlaningPoker-blazor-dotnet\\PlanningPoker\\Shared\\PlanningPoker.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\junho\\git\\PlanningPoker\\PlanningPoker\\Shared\\PlanningPoker.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\junho\\git\\PlaningPoker-blazor-dotnet\\PlanningPoker\\Shared\\PlanningPoker.Shared.csproj",
         "projectName": "PlanningPoker.Shared",
-        "projectPath": "C:\\Users\\junho\\git\\PlanningPoker\\PlanningPoker\\Shared\\PlanningPoker.Shared.csproj",
+        "projectPath": "C:\\Users\\junho\\git\\PlaningPoker-blazor-dotnet\\PlanningPoker\\Shared\\PlanningPoker.Shared.csproj",
         "packagesPath": "C:\\Users\\junho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\junho\\git\\PlanningPoker\\PlanningPoker\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\junho\\git\\PlaningPoker-blazor-dotnet\\PlanningPoker\\Shared\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\junho\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -133,7 +128,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -142,7 +138,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.303\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

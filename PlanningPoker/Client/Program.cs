@@ -1,3 +1,4 @@
+using Microsoft.AspNet.SignalR.Client;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using PlanningPoker.Client;

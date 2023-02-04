@@ -10,3 +10,15 @@ C:\Users\junho\git\PlanningPoker\PlanningPoker\Shared\obj\Debug\net6.0\PlanningP
 C:\Users\junho\git\PlanningPoker\PlanningPoker\Shared\obj\Debug\net6.0\refint\PlanningPoker.Shared.dll
 C:\Users\junho\git\PlanningPoker\PlanningPoker\Shared\obj\Debug\net6.0\PlanningPoker.Shared.pdb
 C:\Users\junho\git\PlanningPoker\PlanningPoker\Shared\obj\Debug\net6.0\ref\PlanningPoker.Shared.dll
+C:\Users\junho\git\PlaningPoker-blazor-dotnet\PlanningPoker\Shared\bin\Debug\net6.0\PlanningPoker.Shared.deps.json
+C:\Users\junho\git\PlaningPoker-blazor-dotnet\PlanningPoker\Shared\bin\Debug\net6.0\PlanningPoker.Shared.dll
+C:\Users\junho\git\PlaningPoker-blazor-dotnet\PlanningPoker\Shared\bin\Debug\net6.0\PlanningPoker.Shared.pdb
+C:\Users\junho\git\PlaningPoker-blazor-dotnet\PlanningPoker\Shared\obj\Debug\net6.0\PlanningPoker.Shared.csproj.AssemblyReference.cache
+C:\Users\junho\git\PlaningPoker-blazor-dotnet\PlanningPoker\Shared\obj\Debug\net6.0\PlanningPoker.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\junho\git\PlaningPoker-blazor-dotnet\PlanningPoker\Shared\obj\Debug\net6.0\PlanningPoker.Shared.AssemblyInfoInputs.cache
+C:\Users\junho\git\PlaningPoker-blazor-dotnet\PlanningPoker\Shared\obj\Debug\net6.0\PlanningPoker.Shared.AssemblyInfo.cs
+C:\Users\junho\git\PlaningPoker-blazor-dotnet\PlanningPoker\Shared\obj\Debug\net6.0\PlanningPoker.Shared.csproj.CoreCompileInputs.cache
+C:\Users\junho\git\PlaningPoker-blazor-dotnet\PlanningPoker\Shared\obj\Debug\net6.0\PlanningPoker.Shared.dll
+C:\Users\junho\git\PlaningPoker-blazor-dotnet\PlanningPoker\Shared\obj\Debug\net6.0\refint\PlanningPoker.Shared.dll
+C:\Users\junho\git\PlaningPoker-blazor-dotnet\PlanningPoker\Shared\obj\Debug\net6.0\PlanningPoker.Shared.pdb
+C:\Users\junho\git\PlaningPoker-blazor-dotnet\PlanningPoker\Shared\obj\Debug\net6.0\ref\PlanningPoker.Shared.dll

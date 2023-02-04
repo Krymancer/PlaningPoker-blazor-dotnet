@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8CPmnx0yhPuJ2lTeaaBlcvhh/HgKOiMfhfFJJvGAwyOTUiKykDCewBxsMZy2UVOcpYLDETN49/YFPSAWJG7nIA==",
+  "dgSpecHash": "XVYkywplpIvzWXKNMVmKx7r3hwdZbjWyS3D2GsCZzahBc3yq0XIMGR3Wv0n0oqyjLkCf1Y+o02RtbU362zDpaw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\junho\\git\\PlanningPoker\\PlanningPoker\\Shared\\PlanningPoker.Shared.csproj",
+  "projectFilePath": "C:\\Users\\junho\\git\\PlaningPoker-blazor-dotnet\\PlanningPoker\\Shared\\PlanningPoker.Shared.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

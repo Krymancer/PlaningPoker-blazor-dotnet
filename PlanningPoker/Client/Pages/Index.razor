@@ -1,27 +1,72 @@
 ﻿@page "/"
+@using Microsoft.AspNetCore.SignalR.Client;
 @inject NavigationManager NavigationManager
 
 <PageTitle>Create Game</PageTitle>
 
 <div id="container" class="flex items-center justify-center h-screen">
   <div class="flex flex-col gap-6 justify-center">
-    <span class="text-center text-xl">Choose a name and a voting system to use:</span>
+    <div class="text-center text-4xl">Join a room:</div>
+    <Dropdown OnDropdownItemClick="(string s) => SetAvaliableRoom(s)" Options="AvaliableRooms" Value="@SelectedAvaliableRoom" />
+    <Button OnClick="() => {Console.WriteLine('t');}" Label="Join Room" />
+    <div class="text-center text-4xl text-bold">Or create a new Room:</div>
+     <span class="text-center text-xl">Choose a name and a voting system to use:</span>
+    <Input Placeholder="Name of room" ValueChanged="(string s) => {}" />
     <Dropdown OnDropdownItemClick="(string s) => SetVotingSystem(s)" Options="VotingSystems" Value="@SelectedVotingSystem" />
-    <Button OnClick="() => CreateGame()" Label="Create Game" />
+    
+    <Button OnClick="() => CreateGame()" Label="Create Room" />
   </div>
 </div>
 
 @code {
     private string[] VotingSystems =  { "Fibonacci", "Modded Fibonacci", "T-shirts", "Powers of two"};
     private string SelectedVotingSystem = "Fibonacci";
+    private string[] AvaliableRooms = {};
+    private string SelectedAvaliableRoom = "Select a room to join...";
+    private bool RoomSelected = false;
 
-    private void CreateGame()
-    { 
-      NavigationManager.NavigateTo("game");
+    private HubConnection? _connection;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _connection = new HubConnectionBuilder()
+        .WithUrl($"https://localhost:7140/hub/game")
+        .Build();
+
+        _connection.On<string[]>("AllRooms", GetAllRooms);
+
+        await _connection.StartAsync();
+        await _connection.InvokeAsync("AllRooms");
+    }
+
+    private void GetAllRooms(string[] rooms)
+    {
+        AvaliableRooms = rooms;
+        foreach(string r in rooms)
+            Console.WriteLine($"{r} ");
+
+    }
+
+    private async void CreateGame()
+    {
+        await _connection!.InvokeAsync("CreateRoom");
+        NavigationManager.NavigateTo("game");
+    }
+
+    private void JoinRoom()
+    {
+        if (!RoomSelected) return;
+        NavigationManager.NavigateTo($"game/{SelectedAvaliableRoom}");
     }
 
     private void SetVotingSystem(string votingSystem)
     {
-      SelectedVotingSystem = votingSystem;
+        SelectedVotingSystem = votingSystem;
+    }
+
+    private void SetAvaliableRoom(string seletecRoom)
+    {
+        RoomSelected = true;
+        SelectedAvaliableRoom = seletecRoom;
     }
 }
