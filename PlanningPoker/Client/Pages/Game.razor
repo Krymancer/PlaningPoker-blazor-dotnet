@@ -13,10 +13,12 @@
         @foreach (var card in cards)
         {
           @if(showCards) {
+            <span>@card.User</span>
             <div class="p-4 m-2 w-16 h-24 flex items-center justify-center rounded-lg cursor-pointer text-xl font-bold border-2 border-blue-600">
-                @card
+                @card.Vote
             </div>
           }else{
+            <span>@card.User</span>
             <div class="p-4 m-2 w-16 h-24 flex items-center justify-center rounded-lg cursor-pointer text-xl font-bold border-2 border-blue-600">
                 !
             </div>
@@ -37,11 +39,17 @@
 </div>
 
 @code {
+    class Card
+    {
+        public string? Vote { get; set; }
+        public Guid User { get; set; }
+    }
+
     [Parameter]
     public string Room { get; set; } = string.Empty;
     private string[] cardsSequence = { "0", "1", "2", "3", "5", "8", "13", "21", "34", "55", "89", "?" };
     private bool showCards = false;
-    private List<string> cards = new List<string>();
+    private List<Card> cards = new List<Card>();
 
     public Guid User = Guid.NewGuid();
 
@@ -54,15 +62,22 @@
        .Build();
 
         _connection.On<Guid,string>($"{Room}-RecieveVote", RecieveVote);
+        _connection.On($"{Room}-RevealCards", RevealCardsSignal);
 
         await _connection.StartAsync();
         await _connection.InvokeAsync("RegisterUser", Room, User);
+
     }
 
     private void RecieveVote(Guid userId,string vote)
     {
-        if(userId != User)
-        cards.Add(vote);
+        var card = new Card()
+        {
+            User = userId,
+            Vote = vote
+        };
+
+        cards.Add(card);
     }
 
     private void RevealCards()
@@ -78,6 +93,10 @@
     private async void AddCard(string card)
     {
         await _connection!.InvokeAsync("RegisterVote", Room, User, card);
-        cards.Add(card);
+    }
+
+    private void RevealCardsSignal()
+    {
+        showCards = true;
     }
 }

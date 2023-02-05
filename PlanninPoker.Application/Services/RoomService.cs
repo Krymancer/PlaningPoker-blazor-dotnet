@@ -18,7 +18,7 @@ namespace PlanningPoker.Application.Services
 
         public string[] GetAllRoomsNames() => _roomRepository.GetAll().Select(r => r.Name).ToArray();
 
-        public void CreateRoom(string roomName)
+        public async void CreateRoom(string roomName)
         {
             var room = new Room()
             {
@@ -29,9 +29,9 @@ namespace PlanningPoker.Application.Services
 
             var roomObject = _roomRepository.GetAll().Where(x => x.Name == roomName).FirstOrDefault();
 
-            if (roomObject is null) return;
+            if (roomObject is not null) return;
 
-            _roomRepository.Insert(room);
+            await _roomRepository.InsertAsync(room);
         }
 
         public void RegisterUser(string roomName, Guid userId)

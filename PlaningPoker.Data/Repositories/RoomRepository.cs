@@ -22,24 +22,28 @@ namespace PlanningPoker.Data.Repositories
             return _context.Rooms.Where(x => x.Id == id);
         }
 
-        public async void InsertAsync(Room room)
+        public async Task InsertAsync(Room room)
         {
             await _context.Rooms.AddAsync(room);
+            await _context.SaveChangesAsync();
         }
 
-        public void Insert(Room room)
+        public async Task Insert(Room room)
         {
             _context.Add(room);
+            await _context.SaveChangesAsync();
         }
 
-        public void Remove(Room room)
+        public async Task Remove(Room room)
         {
             _context.Rooms.Remove(room);
+            await _context.SaveChangesAsync();
         }
 
-        public void Update(Room room)
+        public async Task Update(Room room)
         {
             _context.Rooms.Update(room);
+            await _context.SaveChangesAsync();
         }
     }
 }

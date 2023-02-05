@@ -24,5 +24,7 @@ namespace PlanningPoker.Server.Hubs
         public void RegisterUser(string roomName, Guid userId) => roomService.RegisterUser(roomName, userId);
         
         public async void RegisterVote(string roomName, Guid userId, string vote) => await Clients.All.SendAsync($"{roomName}-RecieveVote", userId, vote);
+
+        public async void RevealCards(string roomName) => await Clients.All.SendAsync($"{roomName}-RevealCards");
     }
 }

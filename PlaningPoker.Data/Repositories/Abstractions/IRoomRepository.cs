@@ -8,12 +8,12 @@ namespace PlanningPoker.Data.Repositories.Abstractions
 
         IQueryable<Room> GetById(Guid id);        
 
-        void InsertAsync(Room room);        
+        Task InsertAsync(Room room);
 
-        void Insert(Room room);        
+        Task Insert(Room room);
 
-        void Remove(Room room);        
+        Task Remove(Room room);
 
-        void Update(Room room);        
+        Task Update(Room room);        
     }
 }
