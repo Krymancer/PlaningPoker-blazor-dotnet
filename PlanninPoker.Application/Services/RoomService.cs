@@ -27,7 +27,7 @@ namespace PlanningPoker.Application.Services
                 Participants = new List<User>()
             };
 
-            var roomObject = _roomRepository.GetAll().Where(x => x.Name == roomName).First();
+            var roomObject = _roomRepository.GetAll().Where(x => x.Name == roomName).FirstOrDefault();
 
             if (roomObject is null) return;
 
@@ -36,7 +36,7 @@ namespace PlanningPoker.Application.Services
 
         public void RegisterUser(string roomName, Guid userId)
         {
-            var room = _roomRepository.GetAll().Where(x => x.Name == roomName).First();
+            var room = _roomRepository.GetAll().Where(x => x.Name == roomName).FirstOrDefault();
 
             if (room is null) return;
 

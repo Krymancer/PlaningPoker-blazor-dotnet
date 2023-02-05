@@ -10,6 +10,9 @@ builder.Services.AddDatabase();
 // Add services to the container.
 builder.Services.AddServices();
 
+// Add repositories to the container
+builder.Services.AddRepositories();
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 

@@ -7,7 +7,7 @@ namespace PlanningPoker.Data.Extensions
     {
         public static void AddDatabase(this IServiceCollection services)
         {
-            services.AddDbContext<AppContext>(options => options.UseInMemoryDatabase("AppDb"));
+            services.AddDbContext<AppContext>();
         }
     }
 }
