@@ -1,21 +1,20 @@
 using PlanningPoker.Server.Hubs;
+using PlanningPoker.Application.Extensions;
+using PlanningPoker.Data.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add database to the container
+builder.Services.AddDatabase();
+
 // Add services to the container.
+builder.Services.AddServices();
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowAllOrigins", b =>
-    {
-        b.AllowAnyOrigin();
-        b.AllowAnyMethod();
-        b.AllowAnyHeader();
-    });
-});
+// Add custom Cors
+builder.Services.AddCustomCors();
 
 builder.Services.AddSignalR();
 
@@ -43,8 +42,8 @@ app.UseRouting();
 app.MapRazorPages();
 app.MapControllers();
 
+// Map SignalR hubs
 app.MapHub<GameHub>("/hub/game");
-app.MapGet("/msg", () => "Hello World");
 
 app.MapFallbackToFile("index.html");
 
